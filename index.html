@@ -167,6 +167,36 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--brown);min
 .icdnum{font-size:1.3rem;font-weight:900;color:var(--red);}
 
 .kaction{background:rgba(245,240,255,.98);border-top:3px solid #A888D8;padding:12px 16px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+
+/* CHEF PICKER */
+.chef-pick-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;padding:8px 0;}
+.chef-pick-title{font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;color:var(--brown);text-align:center;}
+.chef-pick-sub{color:var(--txt2);font-size:.82rem;font-weight:600;text-align:center;margin-top:-10px;}
+.chef-grid{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;max-width:360px;}
+.chef-card{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:10px 12px;border-radius:16px;border:3px solid transparent;transition:all .25s cubic-bezier(0.34,1.56,0.64,1);background:#fff;box-shadow:0 4px 14px var(--sh);}
+.chef-card:hover{transform:translateY(-5px) scale(1.06);box-shadow:0 10px 28px var(--sh2);}
+.chef-card.selected{border-color:var(--purple);background:var(--lavender);}
+.chef-card-name{font-size:.7rem;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.5px;}
+
+/* EXTRA KITCHEN ITEMS */
+.k-plant{position:absolute;z-index:4;}
+.k-plant-pot{width:22px;height:18px;background:linear-gradient(180deg,#C07840,#904820);border-radius:3px 3px 5px 5px;position:absolute;bottom:0;left:50%;transform:translateX(-50%);}
+.k-plant-stem{position:absolute;bottom:14px;left:50%;width:3px;height:20px;background:#3A8A28;transform:translateX(-50%);}
+.k-plant-leaf{position:absolute;background:#4CAF50;border-radius:50% 50% 50% 0;}
+.k-clock{position:absolute;z-index:4;width:38px;height:38px;background:radial-gradient(circle at 40% 35%,#FFF8E8,#EEE0C8);border:3px solid #9880C0;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.25);}
+.k-clock-face{position:relative;width:28px;height:28px;}
+.k-clock-hand{position:absolute;bottom:50%;left:50%;transform-origin:bottom center;background:#5A3A7A;border-radius:2px;}
+.k-cookbook{position:absolute;z-index:4;width:28px;height:36px;border-radius:3px 4px 4px 3px;box-shadow:2px 2px 6px rgba(0,0,0,.25);}
+.k-spice-rack{position:absolute;z-index:4;display:flex;gap:3px;align-items:flex-end;}
+.k-spice{width:10px;border-radius:3px 3px 0 0;border:1.5px solid rgba(0,0,0,.15);}
+.k-hanging-pots{position:absolute;z-index:4;display:flex;gap:10px;align-items:flex-start;}
+.k-hpot{display:flex;flex-direction:column;align-items:center;}
+.k-hpot-hook{width:2px;height:14px;background:#7858A8;}
+.k-hpot-body{width:22px;height:16px;background:radial-gradient(ellipse at 35% 30%,#D0B898,#8C6840);border-radius:4px 4px 6px 6px;border:2px solid #6A4820;}
+.k-hpot-handle{width:14px;height:7px;border:3px solid #6A4820;border-bottom:none;border-radius:6px 6px 0 0;margin-top:-1px;}
+.k-cat{position:absolute;z-index:3;bottom:2px;right:114px;pointer-events:none;}
+.k-mixing-bowl{position:absolute;z-index:4;}
+.k-shelf-decor{position:absolute;z-index:3;display:flex;gap:4px;align-items:flex-end;}
 .kact-row{display:flex;align-items:center;gap:10px;width:min(420px,90%);}
 .kact-bar-bg{flex:1;height:12px;background:var(--lavenderD);border-radius:20px;overflow:hidden;}
 .kact-bar{height:100%;border-radius:20px;background:linear-gradient(90deg,#9B7FD4,#2ECC71);transition:width .5s ease;}
@@ -344,36 +374,36 @@ var SFX={
 
 /* ════ DATA ════ */
 var ALL_Q=[
-  {q:"What is the main ingredient in gingerbread?",opts:["Ginger","Cinnamon","Nutmeg","Cloves"],a:0},
-  {q:"Which spice gives gingerbread its flavor?",opts:["Turmeric","Paprika","Ginger","Cardamom"],a:2},
-  {q:"What keeps dough from sticking to the surface?",opts:["Oil","Flour","Water","Butter"],a:1},
-  {q:"At what temperature does water freeze (Celsius)?",opts:["0°C","-10°C","5°C","100°C"],a:0},
-  {q:"How many eggs are in a classic cookie recipe?",opts:["3","5","1 or 2","10"],a:2},
-  {q:"What makes bread and cookies rise?",opts:["Salt","Sugar","Yeast or baking soda","Butter"],a:2},
-  {q:"Which tool is used to flatten dough?",opts:["Whisk","Rolling pin","Spatula","Ladle"],a:1},
-  {q:"What is powdered sugar also called?",opts:["Caster sugar","Icing sugar","Raw sugar","Brown sugar"],a:1},
-  {q:"At what temperature does butter melt?",opts:["Below 0°C","About 32–35°C","100°C","200°C"],a:1},
-  {q:"What is used to decorate gingerbread houses?",opts:["Ketchup","Mustard","Royal icing","Mayonnaise"],a:2},
-  {q:"How many colors are in a rainbow?",opts:["5","6","7","8"],a:2},
-  {q:"What is the capital of France?",opts:["London","Paris","Rome","Berlin"],a:1},
-  {q:"What is 12 × 12?",opts:["124","144","132","112"],a:1},
-  {q:"Which fruit is used to make raisins?",opts:["Plum","Grape","Cherry","Date"],a:1},
-  {q:"What is the largest ocean on Earth?",opts:["Atlantic","Indian","Arctic","Pacific"],a:3},
-  {q:"What is vanilla extract made from?",opts:["Vanilla beans","Vanilla leaves","Vanilla flowers","Vanilla roots"],a:0},
-  {q:"Which kitchen tool measures liquid?",opts:["Scale","Measuring cup","Timer","Thermometer"],a:1},
-  {q:"What is the scientific name for table salt?",opts:["NaCl","H2O","CO2","C6H12O6"],a:0},
-  {q:"Which season has the longest days?",opts:["Winter","Spring","Summer","Autumn"],a:2},
-  {q:"How many sides does a hexagon have?",opts:["5","7","8","6"],a:3},
-  {q:"Which sugar makes cookies chewy?",opts:["Brown sugar","White sugar","Honey","Maple syrup"],a:0},
-  {q:"What gives cookies a golden-brown color?",opts:["Maillard reaction","Food coloring","Butter melting","It's random"],a:0},
-  {q:"Which planet is closest to the sun?",opts:["Venus","Earth","Mercury","Mars"],a:2},
-  {q:"Boiling point of water in Fahrenheit?",opts:["100°F","212°F","180°F","250°F"],a:1},
-  {q:"How many minutes in 2.5 hours?",opts:["120","150","180","160"],a:1},
-  {q:"What do you add to egg whites for meringue?",opts:["Flour","Butter","Sugar","Milk"],a:2},
-  {q:"Shape of a traditional gingerbread man?",opts:["Star","Circle","Human silhouette","Heart"],a:2},
-  {q:"Which month is the shortest?",opts:["January","February","November","April"],a:1},
-  {q:"What is cream of tartar used for in baking?",opts:["Flavor","Stabilizing egg whites","Adding color","Thickening"],a:1},
-  {q:"Which flour is best for cakes?",opts:["Bread flour","Whole wheat","Cake flour","Rye flour"],a:2},
+  {q:"What type of programming language is Java described as?",opts:["Low-level procedural language","High-level class-based object-oriented language","Markup language","Database query language"],a:1},
+  {q:"According to the lecture, when was Java originally created?",opts:["1991","1995","2000","1989"],a:1},
+  {q:"According to the lecture, who created Python?",opts:["James Gosling","Guido van Rossum","Dennis Ritchie","Bjarne Stroustrup"],a:1},
+  {q:"What is one main design focus of Java?",opts:["Many platform dependencies","Few implementation dependencies","Only web development","Manual memory addresses"],a:1},
+  {q:"Python was designed with a philosophy focused on what?",opts:["Short machine code","Readable code","Only mobile apps","Strict file naming"],a:1},
+  {q:"Which area is Python commonly used for according to the lecture?",opts:["Data analytics and machine learning","Only desktop publishing","Operating system kernels only","Hardware circuit design"],a:0},
+  {q:"What common feature do Java and Python both provide?",opts:["Strong cross-platform support","No standard libraries","Only single-platform execution","No object support"],a:0},
+  {q:"How does Java support running on multiple platforms?",opts:["Through the Java Virtual Machine","Through browser cookies","Through HTML tags","Through SQL tables"],a:0},
+  {q:"How does Python achieve cross-platform execution?",opts:["Through interpreters available on multiple operating systems","By requiring a JVM only","By converting every program to HTML","By removing all libraries"],a:0},
+  {q:"What do extensive standard libraries reduce?",opts:["The need to reinvent common functions","The ability to use files","The use of modules","The possibility of network communication"],a:0},
+  {q:"Which programming paradigm do both Java and Python follow?",opts:["Object-oriented programming","Pure assembly programming","Only logic programming","Only markup programming"],a:0},
+  {q:"In object-oriented programming, data types are usually treated as what?",opts:["Instances of classes","Plain text files","Network packets","Compiler flags"],a:0},
+  {q:"Which OOP concept means bundling data and behavior inside objects?",opts:["Encapsulation","Compilation","Indentation","Portability"],a:0},
+  {q:"Which OOP concept allows a class to derive features from another class?",opts:["Inheritance","Bytecode","Whitespace","Filename matching"],a:0},
+  {q:"Which OOP concept allows one interface or method form to behave differently?",opts:["Polymorphism","Static import","File I/O","Tokenization"],a:0},
+  {q:"Java source code is first converted into what at compilation time?",opts:["Bytecode","Plain English","Spreadsheet cells","Image pixels"],a:0},
+  {q:"When is Java bytecode executed by the interpreter?",opts:["At runtime","Before the source file exists","Only during design","Never"],a:0},
+  {q:"Python is described as supporting which execution approach?",opts:["Interpreter only","Compiler only","Neither compiler nor interpreter","Only bytecode without runtime"],a:0},
+  {q:"What entry point does Java require?",opts:["A static method named main","A file named start.py","A database table","A CSS selector"],a:0},
+  {q:"How does Python normally run a script?",opts:["From beginning to end of a file","Only from a main method","Only after bytecode is sent to JVM","Only after matching class and filename"],a:0},
+  {q:"Why is Java code described as portable?",opts:["Its bytecode can run on any platform with a JVM","It never uses classes","It does not need any runtime system","It ignores all operating systems"],a:0},
+  {q:"Why is Python code described as less portable than Java in the lecture?",opts:["It needs an interpreter installed on the target machine","It cannot use variables","It only runs on mobile devices","It requires Java syntax"],a:0},
+  {q:"Java is statically typed, meaning what?",opts:["Variable types must be specified","Variables cannot store values","Types are chosen randomly at runtime","No type errors can occur"],a:0},
+  {q:"What is one benefit of Java static typing?",opts:["It catches type errors at compile time","It removes the need for classes","It allows no methods","It makes filenames irrelevant"],a:0},
+  {q:"Python is dynamically typed, meaning what?",opts:["A variable type does not have to be declared explicitly","Every variable must be declared as int","Only strings are allowed","Types are checked only by the JVM"],a:0},
+  {q:"How does Java define the beginning and end of functions and classes?",opts:["Using curly braces","Using indentation only","Using hashtags","Using quotation marks"],a:0},
+  {q:"How does Python separate code into code blocks?",opts:["Using indentation","Using curly braces only","Using semicolons only","Using XML tags"],a:0},
+  {q:"Which statement about inheritance is correct according to the lecture?",opts:["Java supports single inheritance, while Python supports single and multiple inheritance","Java supports multiple inheritance directly, while Python supports none","Both languages forbid inheritance","Python only supports interface inheritance"],a:0},
+  {q:"Which overloading statement matches the lecture?",opts:["Java supports method overloading but not operator overloading","Java supports operator overloading only","Python supports no overloading","Both languages forbid method overloading"],a:0},
+  {q:"What relationship does Java enforce between source code class and filename?",opts:["The class containing the source code and the filename should be the same","The filename must always be random","Many unrelated filenames are required","The class name must be lowercase only"],a:0},
 ];
 
 var RECIPES={
@@ -419,6 +449,14 @@ var GSTEPS=[
 ];
 
 /* ════ SVG ASSETS ════ */
+var CHEFS=[
+  {id:'classic',name:'Chef Marie',hatColor:'#FFFFFF',hatStroke:'#C8B8E8',apronColor:'#E890B8',skinColor:'#FFCBA4',hairColor:'#6B3A18'},
+  {id:'blue',name:'Chef Sami',hatColor:'#5B9BD5',hatStroke:'#3A78B0',apronColor:'#5B9BD5',skinColor:'#FFCBA4',hairColor:'#2A1A08'},
+  {id:'pink',name:'Chef Lila',hatColor:'#F48FB1',hatStroke:'#C2185B',apronColor:'#E91E8C',skinColor:'#FFCBA4',hairColor:'#4A1A2A'},
+  {id:'yellow',name:'Chef Nour',hatColor:'#FFD54F',hatStroke:'#F9A825',apronColor:'#FFB300',skinColor:'#D4956A',hairColor:'#1A0A00'},
+  {id:'graduate',name:'Graduate Sara',hatColor:'#2D1B4E',hatStroke:'#D4AF37',apronColor:'#7C5CBF',skinColor:'#FFCBA4',hairColor:'#5C3A1A',gradCap:true},
+  {id:'purple',name:'Chef Roro',hatColor:'#CE93D8',hatStroke:'#7B1FA2',apronColor:'#9C27B0',skinColor:'#FFCBA4',hairColor:'#3A1A5A'},
+];
 var h=React.createElement,useState=React.useState,useEffect=React.useEffect,useRef=React.useRef;
 
 function CookieSVG(props){
@@ -518,27 +556,29 @@ function HouseSVG(props){
   );
 }
 
-function BakerGirl(){
+function BakerGirl(props){
+  var chef=props.chef||CHEFS[0];
+  var hc=chef.hatColor,hs=chef.hatStroke,ac=chef.apronColor,sk=chef.skinColor,hr=chef.hairColor;
   return h('div',{className:'girl-anchor'},
     h('svg',{width:80,height:120,viewBox:'0 0 80 120',style:{overflow:'visible'}},
       h('ellipse',{cx:40,cy:117,rx:22,ry:4,fill:'rgba(0,0,0,0.15)'}),
-      h('ellipse',{cx:29,cy:108,rx:10,ry:5.5,fill:'#C82858'}),
-      h('ellipse',{cx:51,cy:108,rx:10,ry:5.5,fill:'#C82858'}),
-      h('rect',{x:22,y:100,width:14,height:11,rx:3,fill:'#E03870'}),
-      h('rect',{x:44,y:100,width:14,height:11,rx:3,fill:'#E03870'}),
-      h('rect',{x:26,y:82,width:11,height:22,rx:5,fill:'#FFCBA4'}),
-      h('rect',{x:43,y:82,width:11,height:22,rx:5,fill:'#FFCBA4'}),
-      h('path',{d:'M14 60 Q11 85 16 98 L64 98 Q69 85 66 60 Q54 70 40 70 Q26 70 14 60Z',fill:'#E890B8'}),
+      h('ellipse',{cx:29,cy:108,rx:10,ry:5.5,fill:ac}),
+      h('ellipse',{cx:51,cy:108,rx:10,ry:5.5,fill:ac}),
+      h('rect',{x:22,y:100,width:14,height:11,rx:3,fill:ac}),
+      h('rect',{x:44,y:100,width:14,height:11,rx:3,fill:ac}),
+      h('rect',{x:26,y:82,width:11,height:22,rx:5,fill:sk}),
+      h('rect',{x:43,y:82,width:11,height:22,rx:5,fill:sk}),
+      h('path',{d:'M14 60 Q11 85 16 98 L64 98 Q69 85 66 60 Q54 70 40 70 Q26 70 14 60Z',fill:ac}),
       h('rect',{x:28,y:55,width:24,height:16,rx:4,fill:'rgba(255,255,255,.88)'}),
       h('rect',{x:22,y:68,width:36,height:28,rx:4,fill:'rgba(255,255,255,.75)'}),
       h('path',{d:'M30 55 Q24 50 26 44',stroke:'rgba(255,255,255,.85)',strokeWidth:3,fill:'none',strokeLinecap:'round'}),
       h('path',{d:'M50 55 Q56 50 54 44',stroke:'rgba(255,255,255,.85)',strokeWidth:3,fill:'none',strokeLinecap:'round'}),
-      h('path',{d:'M32 70 Q24 67 26 72 Q30 75 34 72Z',fill:'#E05090'}),
-      h('path',{d:'M48 70 Q56 67 54 72 Q50 75 46 72Z',fill:'#E05090'}),
-      h('circle',{cx:40,cy:71,r:4,fill:'#E05090'}),
+      h('path',{d:'M32 70 Q24 67 26 72 Q30 75 34 72Z',fill:ac}),
+      h('path',{d:'M48 70 Q56 67 54 72 Q50 75 46 72Z',fill:ac}),
+      h('circle',{cx:40,cy:71,r:4,fill:ac}),
       h('ellipse',{cx:40,cy:59,rx:12,ry:6,fill:'#F5F0FF'}),
       h('g',{style:{transformOrigin:'18px 64px',animation:'armLeft 1.4s ease-in-out infinite'}},
-        h('path',{d:'M18 64 Q5 68 2 78',stroke:'#FFCBA4',strokeWidth:8,fill:'none',strokeLinecap:'round'}),
+        h('path',{d:'M18 64 Q5 68 2 78',stroke:sk,strokeWidth:8,fill:'none',strokeLinecap:'round'}),
         h('rect',{x:-4,y:74,width:28,height:5,rx:2.5,fill:'#D4B880'}),
         h('ellipse',{cx:10,cy:71,rx:12,ry:6,fill:'#EDD4A0'}),
         h('ellipse',{cx:6,cy:68,rx:6,ry:5,fill:'#D4883A'}),
@@ -546,19 +586,19 @@ function BakerGirl(){
         h('ellipse',{cx:6,cy:66,rx:3,ry:2,fill:'#E8A048',opacity:.6})
       ),
       h('g',{style:{transformOrigin:'62px 64px',animation:'armRight 1.4s ease-in-out infinite'}},
-        h('path',{d:'M62 64 Q75 68 78 78',stroke:'#FFCBA4',strokeWidth:8,fill:'none',strokeLinecap:'round'}),
-        h('ellipse',{cx:78,cy:76,rx:6,ry:6,fill:'#FFCBA4'}),
-        h('rect',{x:75,y:66,width:7,height:11,rx:3.5,fill:'#FFCBA4'}),
-        h('ellipse',{cx:78.5,cy:66,rx:3.5,ry:3.5,fill:'#FFCBA4'})
+        h('path',{d:'M62 64 Q75 68 78 78',stroke:sk,strokeWidth:8,fill:'none',strokeLinecap:'round'}),
+        h('ellipse',{cx:78,cy:76,rx:6,ry:6,fill:sk}),
+        h('rect',{x:75,y:66,width:7,height:11,rx:3.5,fill:sk}),
+        h('ellipse',{cx:78.5,cy:66,rx:3.5,ry:3.5,fill:sk})
       ),
-      h('ellipse',{cx:40,cy:36,rx:26,ry:24,fill:'#FFCBA4'}),
-      h('ellipse',{cx:40,cy:30,rx:27,ry:22,fill:'#6B3A18'}),
-      h('ellipse',{cx:15,cy:40,rx:8,ry:14,fill:'#6B3A18'}),
-      h('ellipse',{cx:65,cy:40,rx:8,ry:14,fill:'#6B3A18'}),
-      h('path',{d:'M14 22 Q18 10 30 16 Q26 22 24 28Z',fill:'#6B3A18'}),
-      h('path',{d:'M66 22 Q62 10 50 16 Q54 22 56 28Z',fill:'#6B3A18'}),
-      h('path',{d:'M24 14 Q40 6 56 14 Q50 22 40 20 Q30 22 24 14Z',fill:'#6B3A18'}),
-      h('ellipse',{cx:40,cy:38,rx:22,ry:20,fill:'#FFCBA4'}),
+      h('ellipse',{cx:40,cy:36,rx:26,ry:24,fill:sk}),
+      h('ellipse',{cx:40,cy:30,rx:27,ry:22,fill:hr}),
+      h('ellipse',{cx:15,cy:40,rx:8,ry:14,fill:hr}),
+      h('ellipse',{cx:65,cy:40,rx:8,ry:14,fill:hr}),
+      h('path',{d:'M14 22 Q18 10 30 16 Q26 22 24 28Z',fill:hr}),
+      h('path',{d:'M66 22 Q62 10 50 16 Q54 22 56 28Z',fill:hr}),
+      h('path',{d:'M24 14 Q40 6 56 14 Q50 22 40 20 Q30 22 24 14Z',fill:hr}),
+      h('ellipse',{cx:40,cy:38,rx:22,ry:20,fill:sk}),
       h('ellipse',{cx:31,cy:38,rx:5,ry:6,fill:'#2A1A08'}),
       h('ellipse',{cx:49,cy:38,rx:5,ry:6,fill:'#2A1A08'}),
       h('ellipse',{cx:29.5,cy:36,rx:1.8,ry:2,fill:'white'}),
@@ -571,14 +611,67 @@ function BakerGirl(){
       h('ellipse',{cx:60,cy:44,rx:8,ry:5,fill:'rgba(255,100,130,0.3)'}),
       h('path',{d:'M31 50 Q40 58 49 50',stroke:'#B06040',strokeWidth:2,fill:'rgba(255,180,160,0.5)',strokeLinecap:'round'}),
       h('ellipse',{cx:40,cy:46,rx:3,ry:2,fill:'rgba(200,110,80,0.35)'}),
-      h('rect',{x:14,y:20,width:52,height:9,rx:4,fill:'#EEE8F8',stroke:'#C8B8E8',strokeWidth:1.5}),
-      h('ellipse',{cx:40,cy:14,rx:22,ry:14,fill:'white'}),
-      h('ellipse',{cx:22,cy:18,rx:12,ry:10,fill:'white'}),
-      h('ellipse',{cx:58,cy:18,rx:12,ry:10,fill:'white'}),
-      h('ellipse',{cx:30,cy:10,rx:12,ry:9,fill:'white'}),
-      h('ellipse',{cx:50,cy:10,rx:12,ry:9,fill:'white'}),
-      h('ellipse',{cx:40,cy:7,rx:10,ry:8,fill:'white'}),
-      h('path',{d:'M15 23 Q40 28 65 23',stroke:'rgba(180,160,210,0.35)',strokeWidth:1.5,fill:'none'})
+      chef.gradCap ? h('g',null,
+        h('polygon',{points:'40,4 13,16 40,28 67,16',fill:hc,stroke:hs,strokeWidth:1.8}),
+        h('rect',{x:25,y:23,width:30,height:10,rx:3,fill:hc,stroke:hs,strokeWidth:1.5}),
+        h('line',{x1:55,y1:17,x2:63,y2:38,stroke:hs,strokeWidth:2,strokeLinecap:'round'}),
+        h('circle',{cx:63,cy:38,r:3,fill:hs}),
+        h('line',{x1:63,y1:38,x2:58,y2:46,stroke:hs,strokeWidth:1.8,strokeLinecap:'round'}),
+        h('line',{x1:63,y1:38,x2:68,y2:46,stroke:hs,strokeWidth:1.8,strokeLinecap:'round'}),
+        h('circle',{cx:40,cy:16,r:3,fill:hs})
+      ) : h(React.Fragment,null,
+        h('rect',{x:14,y:20,width:52,height:9,rx:4,fill:hc,stroke:hs,strokeWidth:1.5}),
+        h('ellipse',{cx:40,cy:14,rx:22,ry:14,fill:hc}),
+        h('ellipse',{cx:22,cy:18,rx:12,ry:10,fill:hc}),
+        h('ellipse',{cx:58,cy:18,rx:12,ry:10,fill:hc}),
+        h('ellipse',{cx:30,cy:10,rx:12,ry:9,fill:hc}),
+        h('ellipse',{cx:50,cy:10,rx:12,ry:9,fill:hc}),
+        h('ellipse',{cx:40,cy:7,rx:10,ry:8,fill:hc}),
+        h('path',{d:'M15 23 Q40 28 65 23',stroke:hs,strokeWidth:1.5,fill:'none'})
+      )
+    )
+  );
+}
+
+function ChefMini(props){
+  var chef=props.chef;
+  var hc=chef.hatColor,hs=chef.hatStroke,ac=chef.apronColor,sk=chef.skinColor,hr=chef.hairColor;
+  return h('svg',{width:56,height:72,viewBox:'0 0 56 80',style:{display:'block'}},
+    h('ellipse',{cx:28,cy:78,rx:14,ry:3,fill:'rgba(0,0,0,0.12)'}),
+    h('rect',{x:18,y:62,width:8,height:14,rx:3,fill:ac}),
+    h('rect',{x:30,y:62,width:8,height:14,rx:3,fill:ac}),
+    h('ellipse',{cx:22,cy:76,rx:6,ry:3.5,fill:'#C82858',opacity:.7}),
+    h('ellipse',{cx:34,cy:76,rx:6,ry:3.5,fill:'#C82858',opacity:.7}),
+    h('path',{d:'M14 42 Q6 48 4 56',stroke:sk,strokeWidth:5,fill:'none',strokeLinecap:'round'}),
+    h('path',{d:'M42 42 Q50 48 52 56',stroke:sk,strokeWidth:5,fill:'none',strokeLinecap:'round'}),
+    h('path',{d:'M12 38 Q10 56 14 64 L42 64 Q46 56 44 38 Q36 45 28 45 Q20 45 12 38Z',fill:ac}),
+    h('rect',{x:22,y:36,width:12,height:10,rx:3,fill:'rgba(255,255,255,.8)'}),
+    h('rect',{x:16,y:44,width:24,height:18,rx:3,fill:'rgba(255,255,255,.7)'}),
+    h('ellipse',{cx:28,cy:26,rx:16,ry:15,fill:sk}),
+    h('ellipse',{cx:28,cy:18,rx:17,ry:13,fill:hr}),
+    h('ellipse',{cx:13,cy:26,rx:5,ry:9,fill:hr}),
+    h('ellipse',{cx:43,cy:26,rx:5,ry:9,fill:hr}),
+    h('ellipse',{cx:28,cy:27,rx:13,ry:12,fill:sk}),
+    h('ellipse',{cx:22,cy:26,rx:3.5,ry:4,fill:'#2A1A08'}),
+    h('ellipse',{cx:34,cy:26,rx:3.5,ry:4,fill:'#2A1A08'}),
+    h('ellipse',{cx:21,cy:24,rx:1.2,ry:1.4,fill:'white'}),
+    h('ellipse',{cx:33,cy:24,rx:1.2,ry:1.4,fill:'white'}),
+    h('path',{d:'M22 35 Q28 40 34 35',stroke:'#B06040',strokeWidth:1.5,fill:'rgba(255,180,160,0.4)',strokeLinecap:'round'}),
+    chef.gradCap ? h('g',null,
+      h('polygon',{points:'28,0 8,9 28,18 48,9',fill:hc,stroke:hs,strokeWidth:1.4}),
+      h('rect',{x:18,y:16,width:20,height:7,rx:2,fill:hc,stroke:hs,strokeWidth:1.2}),
+      h('line',{x1:39,y1:10,x2:45,y2:28,stroke:hs,strokeWidth:1.5,strokeLinecap:'round'}),
+      h('circle',{cx:45,cy:28,r:2.2,fill:hs}),
+      h('line',{x1:45,y1:28,x2:42,y2:34,stroke:hs,strokeWidth:1.3,strokeLinecap:'round'}),
+      h('line',{x1:45,y1:28,x2:49,y2:34,stroke:hs,strokeWidth:1.3,strokeLinecap:'round'}),
+      h('circle',{cx:28,cy:9,r:2.2,fill:hs})
+    ) : h(React.Fragment,null,
+      h('rect',{x:11,y:15,width:34,height:6,rx:3,fill:hc,stroke:hs,strokeWidth:1.5}),
+      h('ellipse',{cx:28,cy:10,rx:16,ry:10,fill:hc}),
+      h('ellipse',{cx:16,cy:13,rx:8,ry:7,fill:hc}),
+      h('ellipse',{cx:40,cy:13,rx:8,ry:7,fill:hc}),
+      h('ellipse',{cx:28,cy:6,rx:10,ry:7,fill:hc}),
+      h('path',{d:'M11 18 Q28 22 45 18',stroke:hs,strokeWidth:1,fill:'none'})
     )
   );
 }
@@ -657,6 +750,7 @@ function App(){
   s=useState(null);var justUnlocked=s[0],setJustUnlocked=s[1];
   s=useState(0);var decoCount=s[0],setDecoCount=s[1];
   s=useState(null);var finalImage=s[0],setFinalImage=s[1]; // Store the merged masterpiece!
+  s=useState(null);var chefChoice=s[0],setChefChoice=s[1];
 
   var canvasRef=useRef(null),drawing=useRef(false),lastPt=useRef(null),strokeHist=useRef([]);
   var timerRef=useRef(null),prepRef=useRef(null),guideRef=useRef(null),clinkRef=useRef(null);
@@ -690,7 +784,7 @@ function App(){
     return function(){clearTimeout(t1);clearTimeout(t2);clearTimeout(t3);clearTimeout(t4);};
   },[screen]);
 
-  function goStart(){if(!name.trim()){showToast("Please enter your name! 😊");return;}sfx('click');setScreen('guide');}
+  function goStart(){if(!name.trim()){showToast("Please enter your name! 😊");return;}sfx('click');setScreen('chef');}
   function skipGuide(){clearInterval(guideRef.current);sfx('click');setScreen('choose');}
   function goBake(c){
     sfx('click');setChoice(c);setUnlocked(new Set());setCooldowns({});
@@ -821,13 +915,13 @@ function App(){
   }
 
   function saveImg(){var el=document.getElementById('fce');if(!el)return;html2canvas(el,{backgroundColor:'#F5F0FF',scale:2,useCORS:true}).then(function(cv){var a=document.createElement('a');a.download='ginger-'+choice+'-'+name+'.png';a.href=cv.toDataURL('image/png');a.click();showToast("🎉 Image saved!");}).catch(function(){showToast("⚠️ Try again.");});}
-  function playAgain(){setScreen('welcome');setChoice(null);setUnlocked(new Set());setCooldowns({});setTops([]);setDecoCount(0);setOvenPhase('idle');setPrepPct(0);setTimer(180);setTimerOn(false);setFinalImage(null);}
+  function playAgain(){setScreen('welcome');setChoice(null);setUnlocked(new Set());setCooldowns({});setTops([]);setDecoCount(0);setOvenPhase('idle');setPrepPct(0);setTimer(180);setTimerOn(false);setFinalImage(null);setChefChoice(null);}
 
   function HUD(){
     if(screen!=='kitchen'&&screen!=='prep'&&screen!=='deco')return null;
     var mins=Math.floor(timer/60),secs=timer%60;
     return h('div',{className:'hud'},
-      h('div',{className:'hud-name'},h('span',null,'👨‍🍳'),name),
+      h('div',{className:'hud-name'},h('span',null,'👨‍🍳'),name+(chefChoice?' ('+chefChoice.name+')':'')),
       recipe&&h('div',{className:'hud-badge'},recipe.dn),
       screen==='kitchen'&&h(React.Fragment,null,
         h('div',{className:'hud-tmr'+(timer<30?' urg':'')},
@@ -866,6 +960,26 @@ function App(){
       h('div',{className:'w-icons'},['🧁','🍰','🏠','🧈','🥚'].map(function(e,i){return h('span',{key:i,style:{animationDelay:i*.3+'s'}},e);})),
       h('div',{className:'footer'},'Dev by Renad Alkahtani')
     )
+  );
+
+  if(screen==='chef')return h('div',{className:'scr'},
+    toast&&h('div',{className:'toast'},toast),
+    h('div',{className:'ptitle',style:{marginBottom:4}},'Pick Your Chef 👨‍🍳'),
+    h('div',{className:'psub',style:{marginBottom:20}},'Choose your baker character — each has a unique hat!'),
+    h('div',{className:'chef-grid'},
+      CHEFS.map(function(c){
+        return h('div',{key:c.id,className:'chef-card'+(chefChoice&&chefChoice.id===c.id?' selected':''),onClick:function(){setChefChoice(c);sfx('click');}},
+          h(ChefMini,{chef:c}),
+          h('div',{className:'chef-card-name'},c.name)
+        );
+      })
+    ),
+    h('div',{style:{marginTop:20,width:'min(360px,90vw)'}},
+      h('button',{className:'bp bpur',style:{opacity:chefChoice?1:.5},
+        onClick:function(){if(!chefChoice){showToast('Pick a chef first! 👆');return;}sfx('click');setScreen('guide');}
+      },'Continue ✨')
+    ),
+    h('div',{className:'footer',style:{marginTop:18}},'Dev by Renad Alkahtani')
   );
 
   if(screen==='guide')return h('div',{className:'gwrap'},
@@ -956,8 +1070,93 @@ function App(){
         h('div',{className:'ksteam',style:{left:'50%',top:'160px',animationDuration:'2.1s',animationDelay:'1.4s'}}),
         h('div',{className:'ksteam',style:{left:'40px',top:'12px',animationDuration:'2.2s',animationDelay:'.3s'}}),
         h('div',{className:'ksteam',style:{left:'52px',top:'12px',animationDuration:'2.7s',animationDelay:'1.1s'}}),
+        /* === EXTRA KITCHEN DECORATIONS === */
+        /* Wall clock above fridge */
+        h('div',{className:'k-clock',style:{right:'14px',top:'128px'}},
+          h('div',{className:'k-clock-face'},
+            h('div',{className:'k-clock-hand',style:{width:'2px',height:'9px',marginLeft:'-1px',transform:'rotate(0deg)'}}),
+            h('div',{className:'k-clock-hand',style:{width:'1.5px',height:'7px',marginLeft:'-.75px',transform:'rotate(90deg)',background:'#9880C0'}})
+          )
+        ),
+        /* Cookbook on top of left cabinet area */
+        h('div',{className:'k-cookbook',style:{position:'absolute',left:'116px',top:'175px',width:'22px',height:'28px',background:'linear-gradient(135deg,#E88040,#C05820)',borderRadius:'2px 4px 4px 2px',zIndex:4,boxShadow:'2px 2px 5px rgba(0,0,0,.3)'}},
+          h('div',{style:{position:'absolute',left:'3px',top:'5px',right:'3px',height:'2px',background:'rgba(255,255,255,.5)',borderRadius:'1px'}}),
+          h('div',{style:{position:'absolute',left:'3px',top:'10px',right:'3px',height:'2px',background:'rgba(255,255,255,.4)',borderRadius:'1px'}}),
+          h('div',{style:{position:'absolute',left:'3px',top:'15px',right:'5px',height:'2px',background:'rgba(255,255,255,.3)',borderRadius:'1px'}}),
+          h('div',{style:{fontSize:'7px',textAlign:'center',paddingTop:'19px',lineHeight:1}})
+        ),
+        /* Second cookbook */
+        h('div',{style:{position:'absolute',left:'140px',top:'177px',width:'18px',height:'26px',background:'linear-gradient(135deg,#5B9BD5,#3A78B0)',borderRadius:'2px 4px 4px 2px',zIndex:4,boxShadow:'2px 2px 5px rgba(0,0,0,.25)'}}),
+        /* Hanging pots from back strip */
+        h('div',{style:{position:'absolute',left:'calc(50% - 30px)',top:'175px',zIndex:4,display:'flex',gap:'12px'}},
+          h('div',{className:'k-hpot'},
+            h('div',{className:'k-hpot-hook'}),
+            h('div',{className:'k-hpot-handle'}),
+            h('div',{className:'k-hpot-body'})
+          ),
+          h('div',{className:'k-hpot'},
+            h('div',{className:'k-hpot-hook'}),
+            h('div',{className:'k-hpot-handle'}),
+            h('div',{className:'k-hpot-body',style:{background:'radial-gradient(ellipse at 35% 30%,#E8C0A0,#6A4820)'}})
+          )
+        ),
+        /* Spice jars on back strip right side */
+        h('div',{style:{position:'absolute',right:'120px',top:'178px',zIndex:4,display:'flex',gap:'4px',alignItems:'flex-end'}},
+          h('div',{style:{width:'11px',height:'20px',background:'linear-gradient(180deg,#E8D0A8,#C8B088)',borderRadius:'2px 2px 0 0',border:'1.5px solid #A89068',boxShadow:'inset -2px 0 3px rgba(0,0,0,.1)'}},
+            h('div',{style:{width:'7px',height:'5px',background:'#FF6B6B',borderRadius:'1px',margin:'2px auto 0',opacity:.8}})
+          ),
+          h('div',{style:{width:'11px',height:'16px',background:'linear-gradient(180deg,#E8D0A8,#C8B088)',borderRadius:'2px 2px 0 0',border:'1.5px solid #A89068'}},
+            h('div',{style:{width:'7px',height:'5px',background:'#4CAF50',borderRadius:'1px',margin:'2px auto 0',opacity:.8}})
+          ),
+          h('div',{style:{width:'11px',height:'22px',background:'linear-gradient(180deg,#E8D0A8,#C8B088)',borderRadius:'2px 2px 0 0',border:'1.5px solid #A89068'}},
+            h('div',{style:{width:'7px',height:'5px',background:'#FFB300',borderRadius:'1px',margin:'2px auto 0',opacity:.8}})
+          )
+        ),
+        /* Plant on left side of floor */
+        h('div',{style:{position:'absolute',left:'114px',bottom:'4px',zIndex:5,display:'flex',flexDirection:'column',alignItems:'center',width:'30px',pointerEvents:'none'}},
+          h('div',{style:{position:'relative',height:'30px',width:'30px'}},
+            h('div',{style:{position:'absolute',bottom:'0',left:'10px',width:'3px',height:'18px',background:'#3A8A28'}}),
+            h('div',{style:{position:'absolute',bottom:'12px',left:'2px',width:'10px',height:'8px',background:'#4CAF50',borderRadius:'50% 50% 50% 0',transform:'rotate(-30deg)'}}),
+            h('div',{style:{position:'absolute',bottom:'14px',left:'14px',width:'10px',height:'8px',background:'#388E3C',borderRadius:'50% 50% 0 50%',transform:'rotate(20deg)'}}),
+            h('div',{style:{position:'absolute',bottom:'18px',left:'8px',width:'8px',height:'7px',background:'#66BB6A',borderRadius:'50% 50% 50% 0',transform:'rotate(-10deg)'}})
+          ),
+          h('div',{style:{width:'20px',height:'16px',background:'linear-gradient(180deg,#C07840,#904820)',borderRadius:'3px 3px 5px 5px',border:'1.5px solid #7A3A18'}})
+        ),
+        /* Cat on the right side bottom */
+        h('div',{className:'k-cat'},
+          h('svg',{width:32,height:34,viewBox:'0 0 32 34'},
+            h('ellipse',{cx:16,cy:29,rx:10,ry:5,fill:'#C8C0D8'}),
+            h('ellipse',{cx:16,cy:24,rx:10,ry:8,fill:'#D8D0E8'}),
+            h('path',{d:'M9 18 Q8 10 12 12',stroke:'#C8C0D8',strokeWidth:3,fill:'none',strokeLinecap:'round'}),
+            h('path',{d:'M23 18 Q24 10 20 12',stroke:'#C8C0D8',strokeWidth:3,fill:'none',strokeLinecap:'round'}),
+            h('ellipse',{cx:16,cy:16,rx:9,ry:9,fill:'#D8D0E8'}),
+            h('ellipse',{cx:12,cy:15,rx:2.5,ry:3,fill:'#2A2040'}),
+            h('ellipse',{cx:20,cy:15,rx:2.5,ry:3,fill:'#2A2040'}),
+            h('ellipse',{cx:11.5,cy:14,rx:.9,ry:1.1,fill:'white'}),
+            h('ellipse',{cx:19.5,cy:14,rx:.9,ry:1.1,fill:'white'}),
+            h('ellipse',{cx:16,cy:19,rx:2,ry:1.2,fill:'#E8A0B8'}),
+            h('path',{d:'M13 20 Q16 22 19 20',stroke:'#A080B0',strokeWidth:1,fill:'none'}),
+            h('path',{d:'M8 18 L4 17',stroke:'#B0A8C8',strokeWidth:1,strokeLinecap:'round'}),
+            h('path',{d:'M8 19 L3 19',stroke:'#B0A8C8',strokeWidth:1,strokeLinecap:'round'}),
+            h('path',{d:'M24 18 L28 17',stroke:'#B0A8C8',strokeWidth:1,strokeLinecap:'round'}),
+            h('path',{d:'M24 19 L29 19',stroke:'#B0A8C8',strokeWidth:1,strokeLinecap:'round'}),
+            h('path',{d:'M16 28 Q22 30 24 34',stroke:'#B0A8C8',strokeWidth:2,fill:'none',strokeLinecap:'round'})
+          )
+        ),
+        /* Mixing bowl on floor area center */
+        h('div',{style:{position:'absolute',left:'50%',bottom:'4px',transform:'translateX(-50%)',zIndex:4,pointerEvents:'none'}},
+          h('svg',{width:36,height:24,viewBox:'0 0 36 24'},
+            h('ellipse',{cx:18,cy:6,rx:18,ry:5,fill:'#D0C8E8',stroke:'#9880C0',strokeWidth:1.5}),
+            h('path',{d:'M0 6 Q2 22 18 22 Q34 22 36 6Z',fill:'url(#bowlG)',stroke:'#9880C0',strokeWidth:1.5}),
+            h('ellipse',{cx:18,cy:6,rx:16,ry:3.5,fill:'rgba(255,255,255,.25)'}),
+            h('defs',null,h('linearGradient',{id:'bowlG',x1:'0%',y1:'0%',x2:'0%',y2:'100%'},
+              h('stop',{offset:'0%',stopColor:'#E8E0F8'}),
+              h('stop',{offset:'100%',stopColor:'#C0B0D8'})
+            ))
+          )
+        ),
         h('div',{className:'k-floor-area'},
-          h(BakerGirl,null)
+          h(BakerGirl,{chef:chefChoice||CHEFS[0]})
         ),
       ),
       h('div',{className:'kaction'},
