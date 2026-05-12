@@ -1,5 +1,5 @@
-# ginger-house-decoration
-# 🍪 OOP Quiz Baking Game 🎓
+# 
+#  OOP Quiz Baking Game - ginger-house-decoration ✨🍪
 
 An interactive educational web game made by **Renad Alkahtani** ✨
 This project turns Object-Oriented Programming revision into a fun baking challenge. Players answer multiple-choice questions, unlock ingredients, bake a dessert, and decorate the final result.
