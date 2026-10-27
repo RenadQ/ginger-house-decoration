@@ -3,6 +3,14 @@
 An interactive educational web game made by **Renad Alkahtani** ✨
 
 ### ▶️ [Play it online](https://renadq.github.io/ginger-house-decoration/)
+
+<p align="center">
+  <img src="screenshots/start.jpg" width="49%" alt="Start screen">
+  <img src="screenshots/kitchen.jpg" width="49%" alt="Kitchen: unlock ingredients">
+  <img src="screenshots/question.jpg" width="49%" alt="OOP question">
+  <img src="screenshots/how-to-play.jpg" width="49%" alt="How to play">
+</p>
+
 This project turns Object-Oriented Programming revision into a fun baking challenge. Players answer multiple-choice questions, unlock ingredients, bake a dessert, and decorate the final result.
 
 ## 🌟 Project Idea
@@ -79,6 +87,7 @@ The quiz questions cover important concepts from the lecture, including:
 project-folder/
 │
 ├── index.html    # Main game file
+├── screenshots/  # README images
 └── README.md     # Project documentation
 ```
 
@@ -170,3 +179,11 @@ This project is for educational use. You can modify it, improve it, and reuse it
 ---
 
 ⭐ If you like the project, give it a star on GitHub!
+
+---
+
+<details>
+<summary>🇸🇦 ملخص بالعربي</summary>
+
+لعبة ويب تعليمية تحوّل مراجعة البرمجة الكائنية (OOP) لتحدي خَبز: تجاوب على أسئلة عن Java وPython عشان تفتح المكونات، بعدها تخبز وتزيّن الحلا وتحفظه كصورة. تقدر تلعبها مباشرة من الرابط فوق.
+</details>
