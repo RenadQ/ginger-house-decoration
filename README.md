@@ -1,7 +1,8 @@
-# 
-#  OOP Quiz Baking Game - ginger-house-decoration ✨🍪
+# OOP Quiz Baking Game - ginger-house-decoration ✨🍪
 
 An interactive educational web game made by **Renad Alkahtani** ✨
+
+### ▶️ [Play it online](https://renadq.github.io/ginger-house-decoration/)
 This project turns Object-Oriented Programming revision into a fun baking challenge. Players answer multiple-choice questions, unlock ingredients, bake a dessert, and decorate the final result.
 
 ## 🌟 Project Idea
@@ -81,13 +82,6 @@ project-folder/
 └── README.md     # Project documentation
 ```
 
-If the HTML file has another name, rename it to:
-
-```text
-index.html
-```
-
-This makes it easier to publish the project using GitHub Pages.
 
 ## 🚀 How to Run the Project
 
@@ -110,25 +104,9 @@ Then open:
 http://localhost:8000
 ```
 
-## 🌐 Deploy on GitHub Pages
+## 🌐 Live version
 
-1. Create a new GitHub repository.
-2. Upload `index.html` and `README.md`.
-3. Go to **Settings**.
-4. Open **Pages**.
-5. Choose:
-
-   * Source: `Deploy from a branch`
-   * Branch: `main`
-   * Folder: `/root`
-6. Save the settings.
-7. Wait for GitHub to generate the website link.
-
-## 🎯 Recommended Repository Name
-
-```text
-oop-quiz-baking-game
-```
+The game is published with GitHub Pages: **https://renadq.github.io/ginger-house-decoration/**
 
 ## 🔧 How to Edit Questions
 
